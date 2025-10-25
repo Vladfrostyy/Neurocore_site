@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Спасибо за заявку!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #05070D 0%, #0B1E2A 40%, #00CFFF 60%);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .thank-you-container {
+            max-width: 500px;
+            background-color: white;
+            color: #333;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .icon {
+            font-size: 4rem;
+            color: #00CFFF;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #00CFFF;
+        }
+        
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        
+        .highlight {
+            color: #00CFFF;
+            font-weight: 600;
+        }
+        
+        .back-btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #0B1E2A 0%, #00CFFF 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 193, 7, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you-container">
+        <div class="icon">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <h1>Спасибо за вашу заявку!</h1>
+        <p>Мы получили ваши данные и скоро свяжемся с вами через выбранный мессенджер.</p>
+        <p>Наша команда экспертов с <span class="highlight">7-летним опытом</span> в криптотрейдинге поможет вам достичь ваших финансовых целей.</p>
+        <a href="index.html" class="back-btn">Вернуться на главную</a>
+    </div>
+</body>
+</html>

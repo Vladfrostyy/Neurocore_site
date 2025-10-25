@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kripto Family</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(90deg, #001F3F 0%, #0B1E2A 50%, #0B1E2A 100%);
+            color: white;
+            padding: 25px 20px;
+            text-align: center;
+        }
+        
+        .video-section {
+            padding: 20px;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+        
+        .video-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+            color: #0B1E2A;
+            text-align: center;
+        }
+        
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            margin-bottom: 20px;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .description {
+            padding: 20px;
+            background-color: white;
+        }
+        
+        .description h2 {
+            color: #001F3F;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .description p {
+            margin-bottom: 20px;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        
+        .direction-title {
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            color: #333;
+        }
+        
+        .directions {
+            margin-bottom: 25px;
+        }
+        
+        .direction-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            padding: 15px 20px;
+            border-radius: 12px;
+            background-color: #001F3F;
+            height: 60px;
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border-left: 4px solid #078cdf;
+        }
+        
+        .direction-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            background-color: #078cdf;
+        }
+        
+        .direction-emoji {
+            font-size: 1.5rem;
+            margin-right: 15px;
+        }
+        
+        .direction-label {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            background-color: #001F3F;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            border-left: 4px solid #0871d9;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #fff;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #fff;
+        }
+        
+        .messenger-title {
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            color: #fff;
+        }
+        
+        .messengers {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .messenger-btn {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            background-color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .messenger-btn:hover, .messenger-btn.selected {
+            border-color: #2575fc;
+            background-color: #f0f7ff;
+        }
+        
+        .messenger-icon {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+        
+        .telegram .messenger-icon {
+            color: #0088cc;
+        }
+        
+        .whatsapp .messenger-icon {
+            color: #25D366;
+        }
+        
+        .form-section {
+            padding: 0 20px 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus {
+            border-color: #001F3F;
+            outline: none;
+        }
+        
+        .phone-input {
+            position: relative;
+        }
+        
+        .phone-hint {
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 5px;
+            margin-left: 5px;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 17px;
+            background: linear-gradient(135deg, #05070D 0%, #0B1E2A 40%, #00CFFF 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 193, 7, 0.4);
+        }
+        
+        .submit-btn:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #00CFFF;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1000;
+            display: none;
+        }
+        
+        /* Адаптивность для ПК */
+        @media (min-width: 768px) {
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                padding: 40px 20px;
+                background: linear-gradient(135deg, #05070D 0%, #0B1E2A 40%, #00CFFF 60%);
+            }
+            
+            .container {
+                max-width: 450px;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="./V_1-removebg-preview.png" alt="">
+        </div>
+        
+        <div class="video-section">
+            <div class="video-title">Посмотрите короткое видео</div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/Xi-Olkpl3Ig?si=Ur45kSKs2HWAggi6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        
+        <div class="description">
+            <p>– это пространство вашего развития в сфере крипторынка и трейдинга.</p>
+            
+            <div class="direction-title">Выбирайте интересующие вас направление:</div>
+            <div class="directions">
+                <div class="direction-item">
+                    <span class="direction-emoji">📈</span>
+                    <div class="direction-label">P2P</div>
+                </div>
+                <div class="direction-item">
+                    <span class="direction-emoji">💰</span>
+                    <div class="direction-label">Стейкинг</div>
+                </div>
+                <div class="direction-item">
+                    <span class="direction-emoji">🌊</span>
+                    <div class="direction-label">Пул-ликвидности</div>
+                </div>
+            </div>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-value">7+</div>
+                    <div class="stat-label">лет опыта</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">3000+</div>
+                    <div class="stat-label">новых трейдеров</div>
+                </div>
+            </div>
+            
+            <p>Команда специалистов с опытом торговли более <strong>7 лет</strong> уже помогла <strong>3000 новичкам</strong> – поможет и вам.</p>
+            
+            <div class="messenger-title">Выбери удобный мессенджер для связи:</div>
+            <div class="messengers">
+                <div class="messenger-btn telegram" data-messenger="Telegram">
+                    <div class="messenger-icon"><i class="fab fa-telegram"></i></div>
+                    <div>Telegram</div>
+                </div>
+                <div class="messenger-btn whatsapp" data-messenger="WhatsApp">
+                    <div class="messenger-icon"><i class="fab fa-whatsapp"></i></div>
+                    <div>WhatsApp</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-section">
+            <div class="form-group">
+                <label for="name">Имя</label>
+                <input type="text" id="name" placeholder="Введите ваше имя">
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Телефон</label>
+                <div class="phone-input">
+                    <input type="tel" id="phone" placeholder="Введите ваш номер телефона">
+                    <div class="phone-hint">Можно вводить номер в любом формате</div>
+                </div>
+            </div>
+            
+            <button class="submit-btn" id="submit-btn">Отправить</button>
+        </div>
+        
+        <div class="footer">
+            Kripto Family © 2023
+        </div>
+    </div>
+
+    <div class="notification" id="notification">
+        Данные успешно отправлены!
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const nameInput = document.getElementById('name');
+            const phoneInput = document.getElementById('phone');
+            const submitBtn = document.getElementById('submit-btn');
+            const notification = document.getElementById('notification');
+            
+            let selectedMessenger = null;
+            
+            // Выбор мессенджера
+            const messengerBtns = document.querySelectorAll('.messenger-btn');
+            
+            messengerBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    messengerBtns.forEach(b => b.classList.remove('selected'));
+                    this.classList.add('selected');
+                    selectedMessenger = this.getAttribute('data-messenger');
+                    validateForm();
+                });
+            });
+            
+            // Валидация формы
+            function validateForm() {
+                const name = nameInput.value.trim();
+                const phone = phoneInput.value.trim();
+                
+                if (name && phone && selectedMessenger) {
+                    submitBtn.disabled = false;
+                } else {
+                    submitBtn.disabled = true;
+                }
+            }
+            
+            // Слушатели изменений в полях ввода
+            nameInput.addEventListener('input', validateForm);
+            phoneInput.addEventListener('input', validateForm);
+            
+            // Отправка формы
+            submitBtn.addEventListener('click', async function() {
+                const name = nameInput.value.trim();
+                const phone = phoneInput.value.trim();
+                
+                if (!name || !phone || !selectedMessenger) {
+                    showNotification('Пожалуйста, заполните все поля', 'error');
+                    return;
+                }
+                
+                // Показываем уведомление об отправке
+                showNotification('Отправляем данные...', 'info');
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Отправка...';
+                
+                try {
+                    // Формируем сообщение для Telegram (только имя и телефон)
+                    const message = `📊 Новая заявка от Kripto Family:%0A%0A` +
+                                   `👤 Имя: ${name}%0A` +
+                                   `📞 Телефон: ${phone}%0A` +
+                                   `💬 Мессенджер: ${selectedMessenger}%0A` +
+                                   `⏰ Время: ${new Date().toLocaleString('ru-RU')}`;
+                    
+                    // ВАШИ ДАННЫЕ
+                    const botToken = '8143941604:AAFnit1lPhXv8Pe6anenY_BuMc6HqAqNTlE';
+                    const groupId = '-4902043311';
+                    
+                    // Отправляем сообщение в Telegram
+                    const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${groupId}&text=${message}&parse_mode=HTML`);
+                    
+                    if (response.ok) {
+                        showNotification('Данные успешно отправлены!', 'success');
+                        
+                        // Перенаправляем на страницу благодарности через 2 секунды
+                        setTimeout(() => {
+                            window.location.href = 'thank-you.html';
+                        }, 2000);
+                    } else {
+                        throw new Error('Ошибка отправки в Telegram');
+                    }
+                } catch (error) {
+                    console.error('Ошибка отправки:', error);
+                    showNotification('Ошибка отправки. Попробуйте еще раз.', 'error');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Отправить';
+                }
+            });
+            
+            // Функция показа уведомлений
+            function showNotification(text, type) {
+                notification.textContent = text;
+                
+                // Устанавливаем цвет в зависимости от типа уведомления
+                if (type === 'success') {
+                    notification.style.backgroundColor = '#4CAF50';
+                } else if (type === 'error') {
+                    notification.style.backgroundColor = '#f44336';
+                } else {
+                    notification.style.backgroundColor = '#FFC107';
+                }
+                
+                notification.style.display = 'block';
+                
+                // Скрываем уведомление через 3 секунды
+                setTimeout(() => {
+                    notification.style.display = 'none';
+                }, 3000);
+            }
+            
+            // Изначально блокируем кнопку отправки
+            validateForm();
+        });
+    </script>
+</body>
+</html>
